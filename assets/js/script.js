@@ -20,7 +20,7 @@ let url =
 // The API that openWeatherMap gives that allows geolocation, only using this API for that purpose.
 // Async allows us to use AWAIT
 const geoLocation = async (city) => {
-  const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${ONE_CALL}`;
+  const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${ONE_CALL}`;
   const response = await fetch(geoUrl);
   const data = await response.json();
   // These 2 lines allocates the lat and lon to our data variable
@@ -61,7 +61,7 @@ const displayWeatherData = (weatherInfo, city) => {
   currentWindspeedEl.textContent = currentWindspeed;
 
   const weatherIcon = weatherInfo.current.weather[0].icon;
-  const weatherIconURL = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  const weatherIconURL = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
   const daycurrIconEl = document.querySelector("#currDayIcon");
   daycurrIconEl.src = weatherIconURL;
   const cardTitle = document.querySelector(".cardTitle");
